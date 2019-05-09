@@ -5,7 +5,7 @@ $(document).ready(function() {
         tasknum++;
     });
 
-    $("#delete").click(function() {
+    $("#clear").click(function() {
         if (tasknum > 1) {
             $("ul")
                 .last()
@@ -14,8 +14,12 @@ $(document).ready(function() {
         }
     });
 
-    $("#clear").click(function() {
+    $("#empty").click(function() {
         $("ol").empty();
         tasknum = 1;
     });
+
+    $("ol")
+        .sortable()
+        .draggable();
 });
