@@ -1,22 +1,37 @@
 $(document).ready(function() {
-    var tasknum = 1;
+    var tasknum = 0;
+    var taskdone = 0;
     $("#add").click(function() {
-        $("ol").append("<ul>Task no. " + tasknum + "</ul>");
         tasknum++;
+        $("ol").append("<ul>Task no. " + tasknum + "</ul>");
+        $("#task-count").empty();
+        $("#task-count").append(tasknum);
+    });
+
+    $("ol").on("dblclick", "ul", function() {
+        $(this).addClass("striked");
     });
 
     $("#clear").click(function() {
-        if (tasknum > 1) {
-            $("ul")
-                .last()
-                .remove();
-            tasknum--;
-        }
+        taskdone += $("ul").filter(".striked").length;
+        $("ul")
+            .filter(".striked")
+            .fadeOut();
+        setTimeout(function() {
+            $(".striked").remove();
+        }, 150);
+        $("#task-done").empty();
+        $("#task-done").append(taskdone);
     });
 
     $("#empty").click(function() {
         $("ol").empty();
-        tasknum = 1;
+        tasknum = 0;
+        taskdone = 0;
+        $("#task-count").empty();
+        $("#task-done").empty();
+        $("#task-count").append("0");
+        $("#task-done").append("0");
     });
 
     $("ol")

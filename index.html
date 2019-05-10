@@ -3,7 +3,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
         <title>Fun version of jQuery Task Lister</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"
+        />
         <meta name="description" content="To-Do List made in jQuery" />
         <meta
             name="keywords"
@@ -23,15 +26,18 @@
     </head>
     <body>
         <h1>Fun version of jQuery To-Do Task Lister</h1>
-        <h2>For needs of MDB Job Interview</h2>
-        <span>Press for description</span>
-        <p class="popup-desc"></p>
-
+        <h2>Bonus for MDB Job Interviewer</h2>
+        <p>"Add" adds task numbers, double-clicking the task strikes it through, "Clear" removes only striked 
+            tasks, "Empty" clears table and session. All the task are movable and tracked.</br>
+            Unfortunately double-clicking doesn't work on mobile devices, so basically you have Clear disabled on phones/tablets.</p>
         <div class="container">
             <button id="add">Add</button>
             <button id="clear">Clear</button>
             <button id="empty">Empty</button>
             <ol></ol>
+            <p>Tasks added in session: <span id="task-count">0</span></br>
+            Tasks done: <span id="task-done">0</span></p>
         </div>
+        <footer>©2019 Jakub Stanisławczyk</footer>
     </body>
 </html>
